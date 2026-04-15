@@ -1,0 +1,88 @@
+# ─── Models ───────────────────────────────────────────────
+SCOUT_MODEL = "claude-opus-4-5"
+INTERPRETER_MODEL = "claude-opus-4-5"
+WRITER_MODEL = "claude-opus-4-5"
+API_RETRY_ATTEMPTS = 3
+API_RETRY_DELAY_SECONDS = 15
+RATE_LIMIT_DELAY_SECONDS = 3
+
+# ─── Token Budgets ────────────────────────────────────────
+SCOUT_MAX_INPUT_TOKENS = 8000
+SCOUT_MAX_OUTPUT_TOKENS = 2000
+INTERPRETER_MAX_INPUT_TOKENS = 6000
+INTERPRETER_MAX_OUTPUT_TOKENS = 4000
+WRITER_MAX_INPUT_TOKENS = 4000
+WRITER_MAX_OUTPUT_TOKENS = 4000
+
+# ─── Classification ───────────────────────────────────────
+CONTINUOUS_CONFIDENCE_THRESHOLD = 0.65
+DISCRETE_CONFIDENCE_THRESHOLD = 0.65
+CLASSIFICATION_AMBIGUITY_THRESHOLD = 0.50
+
+# ─── Dependency Graph ─────────────────────────────────────
+MIN_EDGE_SCORE = 0.50
+FUNCTIONAL_DEPENDENCY_CONSISTENCY_THRESHOLD = 0.60
+SPEARMAN_STRONG_THRESHOLD = 0.70
+SPEARMAN_MODERATE_THRESHOLD = 0.40
+CROSS_TAB_MIN_ROWS = 10
+CROSS_TAB_SIGNAL_THRESHOLD = 0.10
+
+# ─── Locking ──────────────────────────────────────────────
+HARD_LOCK_THRESHOLD = 0.85
+SOFT_LOCK_THRESHOLD = 0.65
+PROVISIONAL_LOCK_THRESHOLD = 0.50
+CONTRADICTION_REVISION_THRESHOLD = 0.70
+MAX_USER_CONFIRMATIONS = 5
+
+# ─── Scout ────────────────────────────────────────────────
+SCOUT_DETERMINISTIC_THRESHOLD = 0.75
+SCOUT_IDENTIFIER_THRESHOLD = 0.80
+SCOUT_ESCALATION_THRESHOLD = 0.65
+SCOUT_OVERRIDE_CLASSIFIER_THRESHOLD = 0.80
+SCOUT_MISSINGNESS_MAX = 0.20
+
+# ─── Feedback Loops ───────────────────────────────────────
+GRAPH_OVERRIDE_EDGE_THRESHOLD = 0.85
+GRAPH_OVERRIDE_CLASSIFIER_CONFIDENCE = 0.70
+VALIDATOR_REJECTION_RATE_TRIGGER = 0.70
+MAX_RECOMPUTATIONS_PER_COLUMN = 1
+GLOBAL_RECOMPUTATION_BUDGET = 20
+
+# ─── Normality Testing ────────────────────────────────────
+SHAPIRO_WILK_MAX_N = 50
+MIN_OBSERVATIONS_FOR_NORMALITY = 3
+MIN_UNIQUE_VALUES_FOR_NORMALITY = 3
+PARAMETRIC_SIGNIFICANCE_LEVEL = 0.05
+
+# ─── Missingness ──────────────────────────────────────────
+NHANES_REFUSED_CODES = [7, 77, 777, 7777]
+NHANES_DONT_KNOW_CODES = [9, 99, 999, 9999]
+HIGH_MISSINGNESS_THRESHOLD = 0.80
+SINGLE_VALUE_COLUMN_THRESHOLD = 1
+CODED_MISSING_MAX_PCT = 0.05
+
+# ─── Chunking ─────────────────────────────────────────────
+CHUNK_SIZE_SMALL_DATASET = 5
+CHUNK_SIZE_LARGE_DATASET = 8
+LARGE_DATASET_COLUMN_THRESHOLD = 50
+
+# Row-based dataset size thresholds
+SMALL_DATASET_ROW_THRESHOLD = 1000      # < 1000 rows: small, full multi-pass
+LARGE_DATASET_ROW_THRESHOLD = 50000     # 1000-50000 rows: medium, current behavior
+XLARGE_DATASET_ROW_THRESHOLD = 200000   # 50000-200000 rows: large, single-pass
+# > 200000 rows: warn user, suggest chunked processing
+MAX_CODING_VALUES_IN_PROMPT = 30
+MAX_DEFINITION_CHARS = 200
+
+# ─── Storage ──────────────────────────────────────────────
+SESSION_EXPIRY_DAYS = 10
+MAX_SESSIONS_STORED = 50
+SESSIONS_DIR = "sessions"
+DATA_DIR = "data"
+
+# ─── Chat ─────────────────────────────────────────────────
+CHAT_MAX_EXCHANGES_BEFORE_SUMMARY = 10
+CHAT_COMPRESSED_CONTEXT_MAX_TOKENS = 3000
+
+# ─── Output ───────────────────────────────────────────────
+SUMMARY_TABLE_MAX_CODE_LENGTH = 50
